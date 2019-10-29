@@ -1,6 +1,21 @@
-------Info(2019-10-29 16:17:46.3616)DESKTOP-SS3F1NN------
+------Info(2019-10-29 18:28:22.2684)DESKTOP-SS3F1NN------
+ The call cite PcComponentsShop.UI.Controllers.AccountController.LogOff Identity Info: auth:ApplicationCookie:Admin Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged off
 
-The call cite PcComponentsShop.UI.Controllers.AccountController.LogOff
-Identity Info: auth:ApplicationCookie:Admin
-Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged off
+------Info(2019-10-29 18:29:36.4089)DESKTOP-SS3F1NN------
+ The call cite PcComponentsShop.UI.Controllers.AccountController+<Login>d__5.MoveNext Identity Info: notauth:: Additional Info:Account wiht name:Admin; and id:56f374a9-e436-4858-88d8-31863c0a46e0 has been successfuly logged in
+
+------Info(2019-10-29 18:36:39.4895)DESKTOP-SS3F1NN------
+ The call cite PcComponentsShop.UI.Controllers.AccountController.LogOff Identity Info: auth:ApplicationCookie:Admin Additional Info:Account wiht name:Admin; and id:56f374a9-e436-4858-88d8-31863c0a46e0 has been successfuly logged off
+
+------Info(2019-10-29 18:36:48.0058)DESKTOP-SS3F1NN------
+ The call cite PcComponentsShop.UI.Controllers.AccountController+<Login>d__5.MoveNext Identity Info: notauth:: Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged in
+
+------Info(2019-10-29 18:37:16.8732)DESKTOP-SS3F1NN------
+ The call cite PcComponentsShop.UI.Controllers.AdminController+<Edit>d__12.MoveNext Identity Info: auth:ApplicationCookie:Admin Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly changed
+
+------Info(2019-10-29 18:37:20.0300)DESKTOP-SS3F1NN------
+ The call cite PcComponentsShop.UI.Controllers.AccountController.LogOff Identity Info: auth:ApplicationCookie:Admin Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged off
+
+------Info(2019-10-29 18:37:24.4448)DESKTOP-SS3F1NN------
+ The call cite PcComponentsShop.UI.Controllers.AccountController+<Login>d__5.MoveNext Identity Info: notauth:: Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged in
 
