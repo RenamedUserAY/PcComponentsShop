@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/font-awesome.min.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl bg-dark navbar-dark header" style="z-index: 4;">
+        <a class="navbar-brand facinateFont" href="/Home/Index" id="Brand">PcShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <form class="form-inline searchForm" action="#" style="visibility: hidden;">
+                <input class="form-control" type="text" placeholder="Поиск товаров">
+                <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Index">Главная</a>
+                </li>
+                @if (User.IsInRole("Administrators"))
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <i class="fa fa-book"></i>Управление
+                        </a>
+                        <div class="dropdown-menu">
+                            @Html.ActionLink("Товары", "Index", "Home", null, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Пользователи", "Index", "Admin", null, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Заказы", "Orders", "OrderAdmin", null, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Роли", "Index", "RoleAdmin", null, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                }
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        <i class="fa fa-server"></i>Категории
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/Catalog/ComponentsCatalog/?category=Процессоры">Процессоры</a>
+                        <a class="dropdown-item" href="/Catalog/ComponentsCatalog/?category=Материнские платы">Материнские платы</a>
+                        <a class="dropdown-item" href="/Catalog/ComponentsCatalog/?category=Видеокарты">Видеокарты</a>
+                        <a class="dropdown-item" href="/Catalog/ComponentsCatalog/?category=Корпуса">Корпуса</a>
+                        <a class="dropdown-item" href="/Catalog/ComponentsCatalog/?category=Модули памяти">Модули памяти</a>
+                        <a class="dropdown-item" href="/Catalog/ComponentsCatalog/?category=Блоки питания">Блоки питания</a>
+                        <a class="dropdown-item" href="/Catalog/ComponentsCatalog/?category=SSD диски">SSD диски</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        <i class="fa fa-user-circle"></i>Личный кабинет
+                    </a>
+                    <div class="dropdown-menu">
+                        @*<a class="dropdown-item" href="#"><i class="fa fa-id-card"></i>Профиль</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-heart"></i>Желания</a>*@
+                        <a class="dropdown-item" href="/Home/Orders"><i class="fa fa-first-order"></i>Ваши Заказы</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    @{ HttpCookie cookie = Request.Cookies["ShoppingBasket"];
+                        int? goodsInBasket = 0;
+                        if (cookie != null)
+                        {
+                            goodsInBasket = cookie["ShoppingBasket"]?.ToCharArray().Where(c => c == '+').Count();
+                        }
+                    }
+                    <a class="nav-link" href="/Home/ShopBasket"><i class="fa fa-shopping-basket fa-2x"></i><span id="shopBasketGoodsAmount" class="text-success">@goodsInBasket</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    @Html.Partial("_LoginPartial")
+    <div class="container body-content">
+        <div class="float-right sticky-top mr-5" style="opacity: 0.5;z-index: 1;">
+            <a href="#Brand" class="smooth btn btn-outline-dark position-absolute"><i class="fa fa-arrow-up fa-2x"></i></a>
+            <a href="#footer" class="smooth btn btn-outline-dark position-absolute mt-5"><i class="fa fa-arrow-down fa-2x"></i></a>
+        </div>
+        <div style="min-height: 937px;">
+            @RenderBody()
+        </div>
+        <hr />
+    </div>
+    <footer id="footer" class="bg-dark">
+        <p>&copy; @DateTime.Now.Year - My PcShop All rights are not reserved XD</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/SmoothScroll.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

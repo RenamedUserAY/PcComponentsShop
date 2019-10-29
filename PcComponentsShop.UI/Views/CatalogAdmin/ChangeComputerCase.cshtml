@@ -1,0 +1,41 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.ComputerCase
+
+@{
+    ViewBag.Title = "ChangeComputerCase";
+}
+<h2>Computer Case id: @Model.ID</h2>
+<form action="ChangeComputerCase" method="post" enctype="multipart/form-data">
+    @Html.Partial("GoodFieldsToChangePartial", Model)
+    <div class="form-group">
+        <label for="CaseType">Тип корпуса:</label>
+        @Html.EditorFor(p => p.CaseType, new { htmlAttributes = new {id= "CaseType", @class = "form-control", placeholder = "Тип корпуса:" } })
+        <small>Предидущее значение: @Model.CaseType </small>
+    </div>
+    <div class="form-group">
+        <label for="FormFactor">Форм фактор:</label>
+        @Html.EditorFor(p => p.FormFactor, new { htmlAttributes = new {id= "FormFactor", @class = "form-control", placeholder = "Форм фактор" } })
+        <small>Предидущее значение: @Model.FormFactor </small>
+    </div>
+    <div class="form-group">
+        <label for="PowerSupply">Блок питания:</label>
+        @Html.EditorFor(p => p.PowerSupply, new { htmlAttributes = new {id= "PowerSupply", @class = "form-control", placeholder = "Блок питания" } })
+        <small>Предидущее значение: @Model.PowerSupply </small>
+    </div>
+    <div class="form-group">
+        <label for="Features">Особенности:</label>
+        @Html.EditorFor(p => p.Features, new { htmlAttributes = new {id= "Features", @class = "form-control", placeholder = "Особенности" } })
+        <small>Предидущее значение: @Model.Features </small>
+    </div>
+    <div class="form-group">
+        <label for="MaxCpuCoolerHeight">"Макс. высота кулера CPU(мм):</label>
+        @Html.EditorFor(p => p.MaxCpuCoolerHeight, new { htmlAttributes = new {id= "MaxCpuCoolerHeight", min = "1", @class = "form-control", placeholder = "Макс. высота кулера CPU(мм)" } })
+        <small>Предидущее значение: @Model.MaxCpuCoolerHeight </small>
+    </div>
+    <div class="form-group">
+        <label for="MaxVideoCardLength">Макс. высота видеокарты(мм):</label>
+        @Html.EditorFor(p => p.MaxVideoCardLength, new { htmlAttributes = new {id= "MaxVideoCardLength", min = "1", @class = "form-control", placeholder = "Макс. высота видеокарты(мм)" } })
+        <small>Предидущее значение: @Model.MaxVideoCardLength </small>
+    </div>
+    <button type="submit" class="btn btn-success">Подтвердить изменения</button>
+</form>
+

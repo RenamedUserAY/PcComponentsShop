@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PcComponentsShop.Infrastructure.Business.Basic_Models.Order>
+@foreach (var o in Model)
+{
+    <section class="row">
+        <div class="col-md-2">
+            <img src="@o.GoodImgSrc" alt="Good Image" class="w-100 h-auto"/>
+        </div>
+        <div class="col-md-10 bg-light shopBasketButtonGroup">
+            <p>@o.FullGoodName</p>
+            <input type="hidden" name="id" value="@o.GoodId" />
+            <input type="hidden" name="category" value="@o.GoodCategory" />
+            <input type="hidden" name="actionName" value="ShopBasket" />
+            <input type="hidden" name="controllerName" value="Home" />
+            @{ int allPrice = o.GoodAmount * o.GoodPrice;}
+            <div class="bg-primary text-white rounded w-auto">Цена за еденицу: @o.GoodPrice Грн, Общая ценность: @allPrice Грн</div>
+            @{
+                string color, word;
+                PcComponentsShop.UI.Helpers.OrderHelpers.GetOrderWordAndColor(o.OrderStatus, out word, out color);
+            }
+            <div class="@color rounded text-white">
+                Статус заказа: @word
+            </div>
+            @if (o.OrderStatus == "Registered")
+            {
+            <form action="ChangeOrderStatus" method="post">
+                <input type="hidden" name="orderId" value="@o.OrderId" />
+                <label>Кол-во</label>
+                <input type="number" name="goodAmount" value="1" placeholder="Кол-во" min="1" />
+                <button type="submit" name="IsPay" value="true" class="btn btn-outline-success">Оплатить</button>
+                <button type="submit" name="IsCancel" value="true" class="btn btn-outline-danger">Отменить</button>
+            </form>
+            }
+            else
+            {
+                <p>Кол-во: @o.GoodAmount</p>
+            }
+            @if(o.OrderStatus == "Paid")
+            {
+                <p>Оплачено: @o.PaidAt</p>
+            }
+        </div>
+    </section>
+    <hr />
+}
+

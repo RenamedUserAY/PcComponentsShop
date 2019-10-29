@@ -1,0 +1,36 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.MemoryModule
+
+@{
+    ViewBag.Title = "Memory Module";
+}
+<h2>Memory Module id: @Model.ID</h2>
+<form action="ChangeMemoryModule" method="post" enctype="multipart/form-data">
+    @Html.Partial("GoodFieldsToChangePartial", Model)
+    <div class="form-group">
+        <label for="MemoryCapacity">Объем памяти(Гб):</label>
+        @Html.EditorFor(p => p.MemoryCapacity, new { htmlAttributes = new {id= "MemoryCapacity", @class = "form-control", min = "1", placeholder = "Объем памяти" } })
+        <small>Предидущее значение: @Model.MemoryCapacity </small>
+    </div>
+    <div class="form-group">
+        <label for="MemoryType">Тип памяти(Форм-фактор стандарт):</label>
+        @Html.EditorFor(p => p.MemoryType, new { htmlAttributes = new {id= "MemoryType", @class = "form-control", placeholder = "Тип памяти" } })
+        <small>Предидущее значение: @Model.MemoryType </small>
+    </div>
+    <div class="form-group">
+        <label for="OperatingFrequency">Частота(рабочая МГц):</label>
+        @Html.EditorFor(p => p.OperatingFrequency, new { htmlAttributes = new {id= "OperatingFrequency", @class = "form-control", min="1", placeholder = "Частота(рабочая МГц)" } })
+        <small>Предидущее значение: @Model.OperatingFrequency </small>
+    </div>
+    <div class="form-group">
+        <label for="OperatingVoltage">Рабочее напряжение(В):</label>
+        @Html.EditorFor(p => p.OperatingVoltage, new { htmlAttributes = new {id= "OperatingVoltage", @class = "form-control", placeholder = "Рабочее напряжение(В)" } })
+        <small>Предидущее значение: @Model.OperatingVoltage </small>
+    </div>
+    <div class="form-group">
+        <label for="Timings">Тайминги:</label>
+        @Html.EditorFor(p => p.Timings, new { htmlAttributes = new {id= "Timings", @class = "form-control", placeholder = "Графическое ядро" } })
+        <small>Предидущее значение: @Model.Timings </small>
+    </div>
+    <button type="submit" class="btn btn-success">Подтвердить изменения</button>
+</form>
+

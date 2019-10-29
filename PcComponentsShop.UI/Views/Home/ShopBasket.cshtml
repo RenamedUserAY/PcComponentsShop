@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PcComponentsShop.Domain.Core.Basic_Models.Good>
+@{
+    ViewBag.Title = "ShoppBasket";
+}
+@{
+    HttpCookie cookie = Request.Cookies["ShoppingBasket"];
+    string newInfo = "";
+    <form action="/Home/ShopBasket" method="post" class="form-group">
+        @foreach (var g in Model)
+        {
+            if (cookie != null && !string.IsNullOrEmpty(cookie["ShoppingBasket"]))
+            {
+                if (cookie["ShoppingBasket"].Contains(string.Format($"{g.ID},{g.Category}+")))
+                {
+                    newInfo += string.Format($"{g.ID},{g.Category}+");
+                }
+            }
+            <section class="row">
+                <div class="col-md-2">
+                    <img src="@g.ImgSrc" alt="Good Image" class="w-100 h-auto"/>
+                </div>
+                <div class="col-md-10 bg-light shopBasketButtonGroup">
+                    @{string goodInfo = string.Format($"{g.ID},{g.Category}+");}
+                    <input type="hidden" name="id" value="@g.ID" />
+                    <input type="hidden" name="category" value="@g.Category" />
+                    <input type="hidden" name="actionName" value="ShopBasket" />
+                    <input type="hidden" name="controllerName" value="Home" />
+                    <div class="bg-primary text-white rounded w-25 m-auto text-center">Цена: @g.Price Грн</div>
+                    <div>
+                        <input type="checkbox" name="selectedGoods" id="selectedGoods_@g.ID@g.Category" value="@goodInfo" />
+                        <label for="selectedGoods_@g.ID@g.Category">@g.FullName</label><br />
+                    </div>
+                    <div>
+                        @Html.ActionLink("Купить", "CreateRegisteredOrder", new { goodId = g.ID, category = g.Category }, new { @class = "btn btn-success" })
+                        <button type="submit" name="isRemoveFromBasket" value="true" class="btn btn-danger">Удалить</button>
+                    </div>
+                </div>
+            </section>
+            <hr />
+        }
+        @if (Model.Count() > 0)
+        {
+            <button type="submit" name="buySelected" value="true" class="btn btn-success">Купить выбранное</button>
+
+            <button type="submit" name="removeSelected" value="true" class="btn btn-danger">Удалить выбранное</button>
+        }
+        else
+        {
+            <div class="alert-warning">
+                Ваша корзина пуста. Либо вы не добавили товар, либо у вас отключены cookie, пожалуйста включите их для корректной работы сайта)
+            </div>
+        }
+    </form>
+    cookie["ShoppingBasket"] = newInfo;
+    Response.Cookies.Add(cookie);
+}

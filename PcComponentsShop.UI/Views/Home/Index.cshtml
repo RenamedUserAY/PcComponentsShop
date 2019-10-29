@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="header-h1 header-h1-center">
+    <h1>Выберите категорию</h1>
+</div>
+<div class="card-columns align-self-center categories text-center">
+    <div class="card">
+        @if (User.IsInRole("Administrators"))
+        {
+            @CatalogAdminHelper.ShowCreateGoodButton("Процессоры")
+        }
+        <img class="card-img-top" src="~/Files/CatalogImages/CatalogImageProcessor.jpg" alt="Card image">
+        <a href="/Catalog/ComponentsCatalog/?category=Процессоры" class="categoryButton">
+            <div class="card-img-overlay row justify-content-center">
+                <span class="align-self-center">Процессоры</span>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        @if (User.IsInRole("Administrators"))
+        {
+            @CatalogAdminHelper.ShowCreateGoodButton("Модули памяти")
+        }
+        <img class="card-img-top" src="~/Files/CatalogImages/CatalogImageMemoryModule.png" alt="Card image">
+        <a href="/Catalog/ComponentsCatalog/?category=Модули памяти" class="categoryButton">
+            <div class="card-img-overlay row justify-content-center">
+                <span class="align-self-center">Модули памяти</span>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        @if (User.IsInRole("Administrators"))
+        {
+            @CatalogAdminHelper.ShowCreateGoodButton("Материнские платы")
+        }
+        <img class="card-img-top" src="~/Files/CatalogImages/CatalogImageMotherboard.jpg" alt="Card image">
+        <a href="/Catalog/ComponentsCatalog/?category=Материнские платы" class="categoryButton">
+            <div class="card-img-overlay row justify-content-center">
+                <span class="align-self-center">Материнские платы</span>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        @if (User.IsInRole("Administrators"))
+        {
+            @CatalogAdminHelper.ShowCreateGoodButton("Видеокарты")
+        }
+        <img class="card-img-top" src="~/Files/CatalogImages/CatalogImageVideoCard.jpg" alt="Card image">
+        <a href="/Catalog/ComponentsCatalog/?category=Видеокарты" class="categoryButton">
+            <div class="card-img-overlay row justify-content-center">
+                <span class="align-self-center">Видеокарты</span>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        @if (User.IsInRole("Administrators"))
+        {
+            @CatalogAdminHelper.ShowCreateGoodButton("Корпуса")
+        }
+        <img class="card-img-top" src="~/Files/CatalogImages/CatalogImageComputerCase.png" alt="Card image">
+        <a href="/Catalog/ComponentsCatalog/?category=Корпуса" class="categoryButton">
+            <div class="card-img-overlay row justify-content-center">
+                <span class="align-self-center">Корпуса</span>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        @if (User.IsInRole("Administrators"))
+        {
+            @CatalogAdminHelper.ShowCreateGoodButton("Блоки питания")
+        }
+        <img class="card-img-top" src="~/Files/CatalogImages/CatalogImagePowerSupply.png" alt="Card image">
+        <a href="/Catalog/ComponentsCatalog/?category=Блоки питания" class="categoryButton">
+            <div class="card-img-overlay row justify-content-center">
+                <span class="align-self-center">Блоки питания</span>
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        @if (User.IsInRole("Administrators"))
+        {
+            @CatalogAdminHelper.ShowCreateGoodButton("SSD диски")
+        }
+        <img class="card-img-top" src="~/Files/CatalogImages/CatalogImageSSDDrive.png" alt="Card image">
+        <a href="/Catalog/ComponentsCatalog/?category=SSD диски" class="categoryButton">
+            <div class="card-img-overlay row justify-content-center">
+                <span class="align-self-center">SSD диски</span>
+            </div>
+        </a>
+    </div>
+
+</div>

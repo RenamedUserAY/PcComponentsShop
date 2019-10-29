@@ -1,0 +1,35 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.SSDDrive
+@{
+    ViewBag.Title = "ChangeSSDDrive";
+}
+<h2>SSDDrive id: @Model.ID</h2>
+<form action="ChangeSSDDrive" method="post" enctype="multipart/form-data">
+    @Html.Partial("GoodFieldsToChangePartial", Model)
+    <div class="form-group">
+        <label for="CellMemoryType">Тип ячеек памяти:</label>
+        @Html.EditorFor(p => p.CellMemoryType, new { htmlAttributes = new {id= "CellMemoryType", @class = "form-control", placeholder = "Тип ячеек памяти" } })
+        <small>Предидущее значение: @Model.CellMemoryType </small>
+    </div>
+    <div class="form-group">
+        <label for="Capacity">Ёмкость(число ед.измерения(Гб, Мб и тд)):</label>
+        @Html.EditorFor(p => p.Capacity, new { htmlAttributes = new {id= "Capacity", min="1", @class = "form-control", placeholder = "Ёмкость" } })
+        <small>Предидущее значение: @Model.Capacity </small>
+    </div>
+    <div class="form-group">
+        <label for="FormFactor">Форм-фактор:</label>
+        @Html.EditorFor(p => p.FormFactor, new { htmlAttributes = new {id= "FormFactor", @class = "form-control", placeholder = "Форм-фактор" } })
+        <small>Предидущее значение: @Model.FormFactor </small>
+    </div>
+    <div class="form-group">
+        <label for="ConnectionInterface">Интерфейс подключения:</label>
+        @Html.EditorFor(p => p.ConnectionInterface, new { htmlAttributes = new {id= "ConnectionInterface", @class = "form-control", placeholder = "Интерфейс подключения" } })
+        <small>Предидущее значение: @Model.ConnectionInterface </small>
+    </div>
+    <div class="form-group">
+        <label for="ReadingSpeed">Скорость чтения(до число МБ/с):</label>
+        @Html.EditorFor(p => p.ReadingSpeed, new { htmlAttributes = new {id= "ReadingSpeed", @class = "form-control", placeholder = "Скорость чтения" } })
+        <small>Предидущее значение: @Model.ReadingSpeed </small>
+    </div>
+    <button type="submit" class="btn btn-success">Подтвердить изменения</button>
+</form>
+

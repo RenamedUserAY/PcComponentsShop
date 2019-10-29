@@ -1,0 +1,11 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.RegistrationSystemModels.AppUser
+
+@{
+    ViewBag.Title = "BlockInformation";
+}
+<div class="alert-warning">
+    <p>Приносим свои извинения, @Model.UserName, но ваш аккаунт был заблокирован до @Model.LockoutEndDateUtc, обратитесь
+    в техническую поддержку для выяснения обстоятельств, вы не можете делать покупки, последующая авторизация для данного 
+    аккаунта будет запрещена.
+    </p>
+</div>

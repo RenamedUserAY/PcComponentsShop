@@ -1,0 +1,5 @@
+﻿@helper ShowCreateGoodButton(string category) { 
+<form action="/CatalogAdmin/CreateGood" method="post">
+    <button type="submit" name="category" value="@category" class="btn btn-warning" style="position: absolute; z-index: 3;">Добавить товар</button>
+</form>
+}

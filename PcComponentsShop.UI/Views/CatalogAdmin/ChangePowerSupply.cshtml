@@ -1,0 +1,36 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.PowerSupply
+
+@{
+    ViewBag.Title = "ChangePowerSupply";
+}
+<h2>PowerSupply id: @Model.ID</h2>
+<form action="ChangePowerSupply" method="post" enctype="multipart/form-data">
+    @Html.Partial("GoodFieldsToChangePartial", Model)
+    <div class="form-group">
+        <label for="FormFactor">Форм-фактор:</label>
+        @Html.EditorFor(p => p.FormFactor, new { htmlAttributes = new {id= "FormFactor", @class = "form-control", placeholder = "Форм-фактор" } })
+        <small>Предидущее значение: @Model.FormFactor </small>
+    </div>
+    <div class="form-group">
+        <label for="Power">Мощность(В):</label>
+        @Html.EditorFor(p => p.Power, new { htmlAttributes = new {id= "Power", @class = "form-control", min="1", placeholder = "Мощность" } })
+        <small>Предидущее значение: @Model.Power </small>
+    </div>
+    <div class="form-group">
+        <label for="Certification">Сертификация:</label>
+        @Html.EditorFor(p => p.Certification, new { htmlAttributes = new {id= "Certification", @class = "form-control", placeholder = "Сертификация" } })
+        <small>Предидущее значение: @Model.Certification </small>
+    </div>
+    <div class="form-group">
+        <label for="Cooling">Охлаждение:</label>
+        @Html.EditorFor(p => p.Cooling, new { htmlAttributes = new {id= "Cooling", @class = "form-control", placeholder = "Охлаждение" } })
+        <small>Предидущее значение: @Model.Cooling </small>
+    </div>
+    <div class="form-group">
+        <label for="Features">Особенности:</label>
+        @Html.EditorFor(p => p.Features, new { htmlAttributes = new {id= "Features", @class = "form-control", placeholder = "Особенности" } })
+        <small>Предидущее значение: @Model.Features </small>
+    </div>
+    <button type="submit" class="btn btn-success">Подтвердить изменения</button>
+</form>
+

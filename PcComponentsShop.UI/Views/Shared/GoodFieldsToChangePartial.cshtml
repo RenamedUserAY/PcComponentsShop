@@ -1,0 +1,35 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.Good
+@Html.ValidationSummary()
+<input type="hidden" name="page" value="@ViewBag.page"/>
+<input type="hidden" name="pageSize" value="@ViewBag.pageSize" />
+<input type="hidden" name="id" value="@Model.ID" />
+<input type="hidden" name="Category" value="@Model.Category" />
+<input type="hidden" name="FullName" value="NotSet" />
+<input type="hidden" name="ImgSrc" value="@Model.ImgSrc" />
+<img src="@Model.ImgSrc" class="mx-auto d-block mw-100 h-auto">
+<div class="text-center">
+    <input class="btn btn-primary" type="file" name="NewImage" accept="image/jpeg,image/png" placeholder="Выберите новое изображение"/>
+    <input type="checkbox" value="true" name="IsDeletePreviousImageFromServer" id="IsDeletePreviousImageFromServer" />
+    <label for="IsDeletePreviousImageFromServer">Удалить предидущее изображение?</label>
+</div>
+<div class="form-group">
+    <label for="fullName">Модель:</label>
+    <input type="text" name="Model" value="@Model.Model" placeholder="Модель" id="fullName" class="form-control" />
+    <small>Предидущее значение: @Model.Model </small>
+</div>
+<div class="form-group">
+    <label for="brand">Бренд:</label>
+    <input type="text" name="Brand" value="@Model.Brand" placeholder="Бренд" id="brand" class="form-control" />
+    <small>Предидущее значение: @Model.Brand </small>
+</div>
+<div class="form-group">
+    <label for="price">Цена:</label>
+    <input type="number" name="Price" value="@Model.Price" min="0" placeholder="Цена(Грн)" id="price" class="form-control" />
+    <small>Предидущее значение: @Model.Price </small>
+</div>
+<div class="form-group">
+    <label for="producedAt">Дата производства:</label>
+    @{string date = Model.ProducedAt.ToString("yyyy-MM-dd");}
+    <input type="date" name="ProducedAt" value="@date" min="1900-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" id="producedAt" class="form-control" />
+    <small>Предидущее значение: @date </small>
+</div>

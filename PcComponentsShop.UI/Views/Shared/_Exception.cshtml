@@ -1,0 +1,25 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBag.Title = "_Exception";
+}
+<div class="text-justify text-warning">
+    <h4>
+        Извините за неудобства, возникли некоторые сложности при выполнении вашего запроса,
+        возможно вы пытались вручную модифицировать строку запроса, вы можете обратится в техподдержку для выяснения подробностей
+        , спасибо за понимание)
+    </h4>
+</div>
+@if (User.IsInRole("Administrators") && Model != null)
+{
+    <div class="alert-warning">
+        <p>Тип исключения: @Model.Exception.GetType().ToString()</p>
+        <p>Имя Action метода: @Model.ActionName</p>
+        <p>Имя контроллера: @Model.ControllerName</p>
+        <p>Источник: @Model.Exception.Source</p>
+        <p>Сообщение: @Model.Exception.Message</p>
+        <p>Метод, вызвавший исключение: @Model.Exception.TargetSite.Name</p>
+        <p>Трассировка стека</p>
+        @Model.Exception.StackTrace
+    </div>
+}
+

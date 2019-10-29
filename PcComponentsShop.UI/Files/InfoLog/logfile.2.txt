@@ -1,0 +1,12 @@
+------Info(2019-10-28 20:09:29.2881)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.AccountController.LogOff
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Account wiht name:Alexey; and id:9887a5a0-5ea4-4f52-b546-62615fc7835a has been successfuly logged off
+
+------Info(2019-10-28 20:09:40.2366)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.AccountController+<Login>d__5.MoveNext
+Identity Info: notauth::
+Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged in
+

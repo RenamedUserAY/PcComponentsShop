@@ -1,0 +1,62 @@
+﻿@model PcComponentsShop.UI.Models.CatalogViewModel<PcComponentsShop.Domain.Core.Basic_Models.Good>
+@using PcComponentsShop.UI.Helpers
+@using PcComponentsShop.Infrastructure.Data.Filters;
+@Html.ValidationSummary()
+<button data-toggle="collapse" data-target="#Filters" class="btn btn-success position-absolute" style="opacity: 0.4; z-index: 2;"><i class="fa fa-filter fa-2x"></i></button>
+<section class="filters collapse bg-light p-2" id="Filters">
+    <form class="form-group mt-5" action="ComponentsCatalog" method="get">
+        <input type="hidden" name="category" value="@Model.Category" />
+        <label for="SortByIncreaseName">Имя:</label>
+        @Html.DropDownList("SortByIncreaseName", new SelectList(Enum.GetValues(typeof(CommonSort))), new { id = "SortByIncreaseName", @class = "form-control" })
+        <label for="SortByIncreasePrice">Цена:</label>
+        @Html.DropDownList("SortByIncreasePrice", new SelectList(Enum.GetValues(typeof(CommonSort))), new { id = "SortByIncreasePrice", @class = "form-control" })
+        <label for="SortByIncreasePrice">Дата производства:</label>
+        @Html.DropDownList("SortByIncreaseProducedAt", new SelectList(Enum.GetValues(typeof(CommonSort))), new { id = "SortByIncreaseProducedAt", @class = "form-control" })
+        <label for="minPrice">Цена от:</label>
+        @if (!((PcComponentsFilter)Session["CurrentFilter"]).ValidateInputParameters())
+        {
+            int? minPrice = Model.AllGoods.Select(g => g.Price).Min();
+            int? maxPrice = Model.AllGoods.Select(g => g.Price).Max();
+            <input type="number" class="form-control" id="minPrice" min="@minPrice" name="minPrice" value="@minPrice" placeholder="Минимальная цена: @minPrice">
+            <label for="maxPrice">до:</label>
+            <input type="number" class="form-control" id="maxPrice" max="@maxPrice" name="maxPrice" value="@maxPrice" placeholder="Максимальная цена: @maxPrice">
+            <div class="form-inline">
+                <label class="form-control border-0 mb-2 mt-2">Производители:</label>
+            </div>
+            <div class="form-check">
+                @CatalogHelpers.GetBrandCheckBox(Model.AllGoods)
+            </div>
+        }
+        else
+        {
+            int? minPrice = ((PcComponentsFilter)Session["CurrentFilter"]).MinPrice;
+            int? maxPrice = ((PcComponentsFilter)Session["CurrentFilter"]).MaxPrice;
+            int? minAllPrice = Model.AllGoods.Select(g => g.Price).Min();
+            int? maxAllPrice = Model.AllGoods.Select(g => g.Price).Max();
+            <input type="number" class="form-control" id="minPrice" min="@Model.AllGoods.Select(g => g.Price).Min()" name="minPrice" value="@minPrice" placeholder="Минимальная цена: @minAllPrice">
+            <label for="maxPrice">до:</label>
+            <input type="number" class="form-control" id="maxPrice" max="@Model.AllGoods.Select(g => g.Price).Max()" name="maxPrice" value="@maxPrice" placeholder="Максимальная цена: @maxAllPrice">
+            <div class="form-inline">
+                <label class="form-control border-0 mb-2 mt-2">Производители:</label>
+            </div>
+            <div class="form-check">
+                @CatalogHelpers.GetBrandCheckBox(Model.AllGoods, string.Join(" , ", ((PcComponentsFilter)Session["CurrentFilter"]).Brands))
+            </div>
+        }
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-success"><i class="fa fa-filter"></i>Применить</button>
+        </div>
+    </form>
+</section>
+<section class="container-fluid">
+    @CatalogHelpers.ShowGoods(Model.Goods, Model.PageInfo)
+</section>
+@if (Model.PageInfo.TotalPages > 1)
+{
+    <div class="row">
+        <div class="col-12">
+            @Html.PageLinks(Model.PageInfo, x => Url.Action("ComponentsCatalog", new { page = x, category = Model.Category, SortByIncreasePrice = ((PcComponentsFilter)Session["CurrentFilter"]).SortByIncreasePrice, SortByIncreaseName = ((PcComponentsFilter)Session["CurrentFilter"]).SortByIncreaseName, SortByIncreaseProducedAt = ((PcComponentsFilter)Session["CurrentFilter"]).SortByIncreaseProducedAt }))
+        </div>
+    </div>
+}
+

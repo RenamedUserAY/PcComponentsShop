@@ -1,0 +1,50 @@
+------Info(2019-10-27 17:27:51.3188)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.AccountController.LogOff
+Identity Info: auth:ApplicationCookie:Admin
+Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged off
+
+------Info(2019-10-27 17:28:00.7637)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.AccountController+<Login>d__5.MoveNext
+Identity Info: notauth::
+Additional Info:Account wiht name:Alexey; and id:9887a5a0-5ea4-4f52-b546-62615fc7835a has been successfuly logged in
+
+------Info(2019-10-27 17:44:18.0882)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.CreateRegisteredOrder
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(52) has been created and registered
+Owner name:Alexey
+GoodId: 2 Price: 2295
+
+------Info(2019-10-27 17:44:18.1301)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.CreateRegisteredOrder
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(53) has been created and registered
+Owner name:Alexey
+GoodId: 3 Price: 274
+
+------Info(2019-10-27 17:44:18.1411)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.CreateRegisteredOrder
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(54) has been created and registered
+Owner name:Alexey
+GoodId: 5 Price: 4999
+
+------Info(2019-10-27 17:44:24.8064)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.ChangeOrderStatus
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(48) status has been changed to Paid
+Owner name:Alexey
+
+------Info(2019-10-27 17:44:25.9209)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.ChangeOrderStatus
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(49) status has been changed to Paid
+Owner name:Alexey
+

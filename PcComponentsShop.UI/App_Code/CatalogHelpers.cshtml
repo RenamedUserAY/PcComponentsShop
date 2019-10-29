@@ -1,0 +1,74 @@
+﻿@helper ShowGoods(IEnumerable<PcComponentsShop.Domain.Core.Basic_Models.Good> goods, PcComponentsShop.UI.Models.Pagination.PageInfo pageInfo)
+{
+<div class="row">
+    @foreach (PcComponentsShop.Domain.Core.Basic_Models.Good g in goods)
+    {
+        <div class="col-sm-6 col-md-4 col-xl-3 p-0">
+            <div class="card h-100 goodCard">
+                <img class="card-img-top goodImg" src="@g.ImgSrc" alt="CorpusImage">
+                <div class="card-body goodBody">
+                    <h4 class="card-title">@g.FullName</h4>
+                    <p>Производитель: <b>@g.Brand</b></p>
+                    <p>Дата производства: <b>@g.ProducedAt.Day/@g.ProducedAt.Month/@g.ProducedAt.Year</b></p>
+                    <p class="card-text goodBuyPrice">@g.Price Грн</p>
+                    <form action="/Home/ShopBasket" method="post">
+                        <input type="hidden" name="id" value="@g.ID" />
+                        <input type="hidden" name="category" value="@g.Category" />
+                        <input type="hidden" name="page" value="@pageInfo.PageNumber" />
+                        @if (Request.Cookies["ShoppingBasket"] == null || !PcComponentsShop.UI.Helpers.CatalogHelpers.IsGoodAlreadyInBasket(Request.Cookies["ShoppingBasket"]["ShoppingBasket"], g))
+                        {
+                            <button type="submit" class="btn btn-success goodBuyButton">В корзину<i class="fa fa-shopping-basket"></i></button>
+                        }
+                        else
+                        {
+                            <input type="hidden" name="isRemoveFromBasket" value="true" />
+                            <button type="submit" class="btn btn-warning goodBuyButton">Убрать<i class="fa fa-remove"></i></button>
+                        }
+                    </form>
+                    @if (User.IsInRole("Administrators"))
+                    {
+                        <form action="/CatalogAdmin/ChangeOrDeleteGood" method="post">
+                            <input type="hidden" name="page" value="@pageInfo.PageNumber" />
+                            <input type="hidden" name="pageSize" value="@pageInfo.PageSize" />
+                            <input type="hidden" name="goodId" value="@g.ID" />
+                            <input type="hidden" name="category" value="@g.Category" />
+                            <button type="submit" name="IsDeleteGood" value="true" class="btn btn-sm btn-danger position-absolute" style="bottom: 80%; left: 70%;">Удалить</button>
+                            <button type="submit" name="IsChangeGood" value="true" class="btn btn-sm btn-primary position-absolute" style="bottom: 90%; left: 70%;">Изменить</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+}
+@helper GetBrandCheckBox(IEnumerable<PcComponentsShop.Domain.Core.Basic_Models.Good> goods, string checkedBrands = "no")
+{
+    List<string> strs = new List<string>();
+    foreach (PcComponentsShop.Domain.Core.Basic_Models.Good g in goods)
+    {
+        strs.Add(g.Brand);
+    }
+    strs = strs.Distinct().ToList();
+    foreach (string s in strs)
+    {
+        if (checkedBrands == "no")
+        {
+            <label class="form-check-label w-100">
+                <input class="form-check-input" type="checkbox" value="@s" name="Brands" checked>@s
+            </label>
+        }
+        else if (checkedBrands.Contains(s))
+        {
+            <label class="form-check-label w-100">
+                <input class="form-check-input" type="checkbox" value="@s" name="Brands" checked>@s
+            </label>
+        }
+        else
+        {
+            <label class="form-check-label w-100">
+                <input class="form-check-input" type="checkbox" value="@s" name="Brands">@s
+            </label>
+        }
+    }
+}

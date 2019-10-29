@@ -1,0 +1,27 @@
+------Error(2019-10-26 16:27:35.5935)DESKTOP-SS3F1NN------
+
+Exception Type:System.Web.HttpException |
+Exception Message:Page Not Found |
+Additional Info:An exception caused by: PcComponentsShop.UI
+Target Cite: System.Web.Mvc.ActionResult ComponentsCatalog(System.String[], System.String, PcComponentsShop.Infrastructure.Data.Filters.CommonSort, PcComponentsShop.Infrastructure.Data.Filters.CommonSort, PcComponentsShop.Infrastructure.Data.Filters.CommonSort, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], Int32, Int32)
+User Name: Admin
+Request: https://localhost:44374/Catalog/ComponentsCatalog/?category=Проц
+Stack Trace
+   at PcComponentsShop.UI.Controllers.CatalogController.ComponentsCatalog(String[] Brands, String returnUrl, CommonSort SortByIncreaseName, CommonSort SortByIncreasePrice, CommonSort SortByIncreaseProducedAt, String category, Nullable`1 minPrice, Nullable`1 maxPrice, Int32 page, Int32 pageSize) in F:\MVS Projects\PcComponentsShop\PcComponentsShop.UI\Controllers\CatalogController.cs:line 45
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+

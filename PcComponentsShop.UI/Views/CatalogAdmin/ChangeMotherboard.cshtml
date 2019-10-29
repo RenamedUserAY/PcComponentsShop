@@ -1,0 +1,36 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.Motherboard
+
+@{
+    ViewBag.Title = "ChangeMotherboard";
+}
+<h2>Motherboard id: @Model.ID</h2>
+<form action="ChangeMotherboard" method="post" enctype="multipart/form-data">
+    @Html.Partial("GoodFieldsToChangePartial", Model)
+    <div class="form-group">
+        <label for="Socket">Сокет:</label>
+        @Html.EditorFor(p => p.Socket, new { htmlAttributes = new {id= "Socket", @class = "form-control", placeholder = "Сокет" } })
+        <small>Предидущее значение: @Model.Socket </small>
+    </div>
+    <div class="form-group">
+        <label for="Chipset">Чипсет:</label>
+        @Html.EditorFor(p => p.Chipset, new { htmlAttributes = new {id= "Chipset", @class = "form-control", placeholder = "Чипсет" } })
+        <small>Предидущее значение: @Model.Socket </small>
+    </div>
+    <div class="form-group">
+        <label for="FormFactor">Форм-фактор:</label>
+        @Html.EditorFor(p => p.FormFactor, new { htmlAttributes = new {id= "FormFactor", @class = "form-control", placeholder = "Форм-фактор" } })
+        <small>Предидущее значение: @Model.FormFactor </small>
+    </div>
+    <div class="form-group">
+        <label for="VideoInterfaces">Видеоинтерфейсы:</label>
+        @Html.EditorFor(p => p.VideoInterfaces, new { htmlAttributes = new {id= "VideoInterfaces", @class = "form-control", placeholder = "Видеоинтерфейсы" } })
+        <small>Предидущее значение: @Model.VideoInterfaces </small>
+    </div>
+    <div class="form-group">
+        <label for="MemorySlots">Слоты памяти(кол-воxФорм-фактор стандарт макс частота Мгц):</label>
+        @Html.EditorFor(p => p.MemorySlots, new { htmlAttributes = new {id= "MemorySlots", @class = "form-control", placeholder = "Слоты памяти" } })
+        <small>Предидущее значение: @Model.MemorySlots </small>
+    </div>
+    <button type="submit" class="btn btn-success">Подтвердить изменения</button>
+</form>
+

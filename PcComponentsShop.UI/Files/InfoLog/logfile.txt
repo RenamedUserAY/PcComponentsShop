@@ -1,0 +1,6 @@
+------Info(2019-10-29 16:17:46.3616)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.AccountController.LogOff
+Identity Info: auth:ApplicationCookie:Admin
+Additional Info:Account wiht name:Admin; and id:1d0dbf3f-2a95-4650-ba08-427461e24205 has been successfuly logged off
+

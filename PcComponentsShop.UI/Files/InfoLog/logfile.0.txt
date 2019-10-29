@@ -1,0 +1,44 @@
+------Info(2019-10-27 16:25:04.1212)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.CreateRegisteredOrder
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(48) has been created and registered
+Owner name:Alexey
+GoodId: 3 Price: 11561
+
+------Info(2019-10-27 16:25:04.1621)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.CreateRegisteredOrder
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(49) has been created and registered
+Owner name:Alexey
+GoodId: 4 Price: 12960
+
+------Info(2019-10-27 16:25:04.1760)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.CreateRegisteredOrder
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(50) has been created and registered
+Owner name:Alexey
+GoodId: 5 Price: 21090
+
+------Info(2019-10-27 16:25:04.1760)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.HomeController.CreateRegisteredOrder
+Identity Info: auth:ApplicationCookie:Alexey
+Additional Info:Order(51) has been created and registered
+Owner name:Alexey
+GoodId: 6 Price: 13388
+
+------Info(2019-10-27 16:38:17.0794)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.AdminController.Create
+Identity Info: auth:ApplicationCookie:Admin
+Additional Info:Account wiht name:Vova; and id:7bf4d4f1-3750-4c8f-88cb-93c93e1d00d6 hasn't been successfuly created
+
+------Info(2019-10-27 16:38:22.7047)DESKTOP-SS3F1NN------
+
+The call cite PcComponentsShop.UI.Controllers.AdminController+<Create>d__9.MoveNext
+Identity Info: auth:ApplicationCookie:Admin
+Additional Info:Account wiht name:Vova; and id:65539e1e-3de6-43d1-8968-4ade661fe33a has been successfuly created
+

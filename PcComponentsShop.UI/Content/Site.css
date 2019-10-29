@@ -1,0 +1,154 @@
+﻿body {
+    padding: 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+.header {
+    padding-bottom: 0;
+}
+#footer{
+    text-align:center;
+    padding-top: 10px;
+    color: white;
+    height: 50px;
+}
+.header-h1 {
+    margin-top: 10px;
+    position: relative;
+    margin-bottom: .5rem;
+}
+
+    .header-h1::after {
+        content: "";
+        position: absolute;
+        border-top: 2px solid #28A745;
+        border-bottom: 2px solid #28A745;
+        height: .375rem;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: -999;
+    }
+
+    .header-h1 h1 {
+        font-size: 1.5rem;
+        color: #28A745;
+        display: inline-block;
+        background: #fff;
+        margin-bottom: 0;
+        padding-right: 1rem;
+        text-transform: uppercase;
+    }
+
+.header-h1-center {
+    text-align: center;
+}
+
+    .header-h1-center h1 {
+        padding-left: 1rem;
+    }
+
+.header-h1-right {
+    text-align: right;
+}
+
+    .header-h1-right h1 {
+        padding-left: 1rem;
+        padding-right: 0;
+    }
+
+.searchForm {
+    margin: 0 auto;
+}
+
+    .searchForm > input {
+        border-radius: 10px 0 0 10px;
+        max-width: 85%;
+    }
+
+    .searchForm > button {
+        border-radius: 0 10px 10px 0;
+    }
+
+.facinateFont {
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.navbar-brand {
+    font-size: 32px;
+}
+/*LOGIN PARTIAL*/
+.regStatus {
+    padding: 0;
+}
+
+    .regStatus a.nav-link {
+        padding: 0;
+    }
+/*INDEX STYLES*/
+.categories {
+    margin-top: 10px;
+}
+
+a.categoryButton:hover {
+    opacity: 1.0;
+    transition: 1s;
+}
+
+a.categoryButton {
+    color: white;
+    opacity: 0.5;
+}
+
+.categoryButton > div {
+    margin: 0 auto;
+}
+
+    .categoryButton > div > span {
+        background-color: #28A745;
+        font-size: 32px;
+        border-radius: 10px;
+    }
+/*CATALOG*/
+.filters {
+    margin: 15px;
+}
+
+.goodBuyPrice {
+    background-color: #F3F5E1;
+    color: #479600;
+    margin: 0;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.goodBuyButton {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 5px;
+}
+
+.goodCard .card-body {
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+    .goodCard .card-body h4 {
+        font-size: 1em;
+    }
+/*SHOP BASKET*/

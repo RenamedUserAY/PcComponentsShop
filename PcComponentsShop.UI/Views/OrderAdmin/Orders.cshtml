@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PcComponentsShop.Infrastructure.Business.Basic_Models.Order>
+@foreach (var o in Model)
+{
+    <section class="row">
+        <div class="col-md-2">
+            <img src="@o.GoodImgSrc" alt="Good Image" class="w-100 h-auto"/>
+        </div>
+        <div class="col-md-10 bg-light shopBasketButtonGroup">
+            <input type="hidden" name="id" value="@o.GoodId" />
+            <input type="hidden" name="category" value="@o.GoodCategory" />
+            <input type="hidden" name="actionName" value="ShopBasket" />
+            <input type="hidden" name="controllerName" value="Home" />
+            <p>Имя клиента: @o.UserName</p>
+            <p>@o.FullGoodName</p>
+            <div class="bg-primary text-white rounded w-25 m-auto text-center">Цена: @o.GoodPrice Грн</div>
+            @{
+                string color, word;
+                PcComponentsShop.UI.Helpers.OrderHelpers.GetOrderWordAndColor(o.OrderStatus, out word, out color);
+            }
+            <div class="@color rounded text-white">
+                Статус заказа: @word
+            </div>
+            @if (o.OrderStatus == "Registered")
+            {
+                <form action="ChangeOrderStatus" method="post">
+                    <input type="hidden" name="orderId" value="@o.OrderId" />
+                    <select class="form-control" name="newStatus">
+                        <option selected value="No">Не менять</option>
+                        <option value="Paid">Оплачен</option>
+                        <option value="Canceled">Отменен</option>
+                    </select>
+                    <button type="submit" class="btn btn-outline-warning">Применить</button>
+                </form>
+            }
+            else
+            {
+                <p>Статус заказа невозможно поменять</p>
+            }
+            @if (o.OrderStatus == "Paid")
+            {
+                <p>Оплачено: @o.PaidAt</p>
+            }
+        </div>
+    </section>
+    <hr />
+}
+

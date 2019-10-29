@@ -1,0 +1,36 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.VideoCard
+
+@{
+    ViewBag.Title = "ChangeVideoCard";
+}
+<h2>VideoCard id: @Model.ID</h2>
+<form action="ChangeVideoCard" method="post" enctype="multipart/form-data">
+    @Html.Partial("GoodFieldsToChangePartial", Model)
+    <div class="form-group">
+        <label for="Interface">Интерфейс:</label>
+        @Html.EditorFor(p => p.Interface, new { htmlAttributes = new {id= "Interface", @class = "form-control", placeholder = "Интерфейс" } })
+        <small>Предидущее значение: @Model.Interface </small>
+    </div>
+    <div class="form-group">
+        <label for="CoreFrequency">Частота ядра(Мгц):</label>
+        @Html.EditorFor(p => p.CoreFrequency, new { htmlAttributes = new {id= "CoreFrequency", min="1", @class = "form-control", placeholder = "Частота ядра" } })
+        <small>Предидущее значение: @Model.CoreFrequency </small>
+    </div>
+    <div class="form-group">
+        <label for="CoreFrequencyBoost">Частота ядра(Boost)(Мгц):</label>
+        @Html.EditorFor(p => p.CoreFrequencyBoost, new { htmlAttributes = new {id= "CoreFrequencyBoost", min = "1", @class = "form-control", placeholder = "Частота ядра(Boost)" } })
+        <small>Предидущее значение: @Model.CoreFrequencyBoost </small>
+    </div>
+    <div class="form-group">
+        <label for="MemoryFrequency">Частота памяти(Мгц):</label>
+        @Html.EditorFor(p => p.MemoryFrequency, new { htmlAttributes = new {id= "MemoryFrequency", min = "1", @class = "form-control", placeholder = "Частота памяти" } })
+        <small>Предидущее значение: @Model.MemoryFrequency </small>
+    </div>
+    <div class="form-group">
+        <label for="GraphicsCore">Разъемы:</label>
+        @Html.EditorFor(p => p.Connectors, new { htmlAttributes = new {id= "Connectors", @class = "form-control", placeholder = "Разъемы" } })
+        <small>Предидущее значение: @Model.Connectors </small>
+    </div>
+    <button type="submit" class="btn btn-success">Подтвердить изменения</button>
+</form>
+

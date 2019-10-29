@@ -1,0 +1,41 @@
+﻿@model PcComponentsShop.Domain.Core.Basic_Models.Processor
+
+@{
+    ViewBag.Title = "ChangeProcessor";
+}
+<h2>Processor id: @Model.ID</h2>
+<form action="ChangeProcessor" method="post" enctype="multipart/form-data">
+    @Html.Partial("GoodFieldsToChangePartial", Model)
+    <div class="form-group">
+        <label for="CoreAmount">Кол-во ядер:</label>
+        @Html.EditorFor(p => p.CoreAmount, new { htmlAttributes = new {id= "CoreAmount", @class = "form-control", min = "1", placeholder = "Кол-во ядер:" } })
+        <small>Предидущее значение: @Model.CoreAmount </small>
+    </div>
+    <div class="form-group">
+        <label for="Socket">Сокет (оффициальное название сокета):</label>
+        @Html.EditorFor(p => p.Socket, new { htmlAttributes = new {id= "Socket", @class = "form-control", placeholder = "Сокет" } })
+        <small>Предидущее значение: @Model.Socket </small>
+    </div>
+    <div class="form-group">
+        <label for="Frequency">Частота(рабочая Герц):</label>
+        @Html.EditorFor(p => p.Frequency, new { htmlAttributes = new {id= "Frequency", @class = "form-control", placeholder = "Частота" } })
+        <small>Предидущее значение: @Model.Frequency </small>
+    </div>
+    <div class="form-group">
+        <label for="Kernel">Ядро (оффициальное название ядра):</label>
+        @Html.EditorFor(p => p.Kernel, new { htmlAttributes = new {id= "Kernel", @class = "form-control", placeholder = "Ядро" } })
+        <small>Предидущее значение: @Model.Kernel </small>
+    </div>
+    <div class="form-group">
+        <label for="GraphicsCore">Графическое ядро(оффициальное название графического ядра):</label>
+        @Html.EditorFor(p => p.GraphicsCore, new { htmlAttributes = new {id= "GraphicsCore", @class = "form-control", placeholder = "Графическое ядро" } })
+        <small>Предидущее значение: @Model.GraphicsCore </small>
+    </div>
+    <div class="form-group">
+        <label for="Microarchitecture">Микроархитектура(оффициальное название микроархитектуры):</label>
+        @Html.EditorFor(p => p.Microarchitecture, new { htmlAttributes = new {id= "Microarchitecture", @class = "form-control", placeholder = "Микроархитектура" } })
+        <small>Предидущее значение: @Model.Microarchitecture </small>
+    </div>
+    <button type="submit" class="btn btn-success">Подтвердить изменения</button>
+</form>
+

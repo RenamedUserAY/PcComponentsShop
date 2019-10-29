@@ -1,0 +1,6 @@
+﻿@using PcComponentsShop.Domain.Core.Basic_Models;
+@model CreateUserViewModel
+<div class="alert-success text-center">
+    <h2>Поздравляем, @Model.Name, с успешной регистрацией и желаем приятных покупок!</h2>
+    @Html.ActionLink("На главную", "Index", "Home", null, new { @class = "btn btn-success" })
+</div>
